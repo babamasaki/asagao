@@ -1,0 +1,6 @@
+<%= link_to_unless_current("Home", root_path) do %>
+  <span class="current">Home</span>
+<% end %>
+
+<!-- テキストにタグを加えたいときは,link_to_unless_currentメソッドにブロックを渡す -->
+<!-- link_to_unless_current： 指定したパスが現在のページのパスだった場合リンクの代わりにテキストのみ表示する -->
