@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
-	class << self
+	class << self  #selfはこのファイルそのものを指す
 		def search(query)
 			rel = order("number")   # relにorder(ソート順)を指定したnumberを代入
 			if query.present?
