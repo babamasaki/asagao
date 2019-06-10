@@ -28,5 +28,8 @@ module Asagao
     # the framework and any gems in your application.
 
     config.time_zome = "Tokyo"
+
+    config.action_controller.permit_all_parameters = true
+    #ストロング・パラメータのセキュリティー機能を無効化する。　　あとで必ず有効化しなければならない。
   end
 end

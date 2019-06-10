@@ -1,0 +1,11 @@
+<% @page_title = "会員の新規登録" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for @member do |form| %>
+	<%= render "form", form: form %>
+	<!-- 部分テンプレート -->
+	<!-- 部分テンプレートではインスタンス変数は使えるがローカル変数は使えない。 -->
+	<!-- form: form...  x: y yが親テンプレートで指定することによりxが部分テンプレートの中でローカル変数が使える様になる。 -->
+	<div><%= form.submit %></div>
+<% end %>
