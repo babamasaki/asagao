@@ -29,7 +29,8 @@ module Asagao
 
     config.time_zome = "Tokyo"
 
-    config.action_controller.permit_all_parameters = true
-    #ストロング・パラメータのセキュリティー機能を無効化する。　　あとで必ず有効化しなければならない。
+    # config.action_controller.permit_all_parameters = true
+    #ストロング・パラメータのセキュリティー機能を無効化する。 あとで必ず有効化しなければならない。
+    config.i18n.default_locale = :ja
   end
 end

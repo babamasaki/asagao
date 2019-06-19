@@ -19,7 +19,7 @@ class MembersController < ApplicationController
 	def new
 		@member = Member.new(birthday: Date.new(1980, 1, 1))
 		@member.administrator = true  #管理者のチェックボックスに初期値でチェックを入れておく。
-		@member.sex = 2  #女性側にチェックがつく様になる。　ラジオボタンに選択肢が無い場合は初期値でチェックがつく様になる。
+		@member.sex = 2  #女性側にチェックがつく様になる。ラジオボタンに選択肢が無い場合は初期値でチェックがつく様になる。
 	end
 
 	#更新フォーム
@@ -29,7 +29,7 @@ class MembersController < ApplicationController
 
     #会員の新規登録
 	def create
-		@member = Member.new(params[:member])
+		@member = Member.new(member_params)
 		if @member.save
 			redirect_to @member, notice: "会員を登録しました。"    #@memberが表すパスへ飛ぶ
 		else
@@ -40,7 +40,7 @@ class MembersController < ApplicationController
 	#会員情報の編集
 	def update
 		@member = Member.find(params[:id])
-		@member.assign_attributes(params[:member])  #assign_attributes: 属性を変更するメソッド
+		@member.assign_attributes(member_params)  #assign_attributes: 属性を変更するメソッド
 		if @member.save
 			redirect_to @member, notice: "会員情報を更新しました。"
 		else
@@ -54,4 +54,10 @@ class MembersController < ApplicationController
 		@member.destroy
 		redirect_to :members, notice: "会員を削除しました。"
 	end
+
+	private
+	def member_params
+		params.require(:member).permit(:number, :name, :full_name, :sex, :birthday, :email, :administrator)
+	end
+
 end
